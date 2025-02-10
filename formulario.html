@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Solicitud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Solicitud</h1>
+        <form action="procesar_formulario.php" method="post">
+            <div class="form-group">
+                <label for="solicitud">Solicitud:</label>
+                <input type="text" id="solicitud" name="solicitud">
+            </div>
+            <div class="form-group">
+                <label for="asesor">Asesor:</label>
+                <input type="text" id="asesor" name="asesor">
+            </div>
+            <div class="form-group">
+                <label for="atiende_pedido">Atiende Pedido:</label>
+                <input type="text" id="atiende_pedido" name="atiende_pedido">
+            </div>
+            <div class="form-group">
+                <label for="oc">O.C.:</label>
+                <input type="text" id="oc" name="oc">
+            </div>
+            <div class="form-group">
+                <label for="arte">Arte:</label>
+                <input type="text" id="arte" name="arte">
+            </div>
+            <div class="form-group">
+                <label for="base_datos_1">Base de Datos 1:</label>
+                <input type="text" id="base_datos_1" name="base_datos_1">
+            </div>
+            <div class="form-group">
+                <label for="base_datos_2">Base de Datos 2:</label>
+                <input type="text" id="base_datos_2" name="base_datos_2">
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad">
+            </div>
+            <div class="form-group">
+                <label for="cliente">Cliente:</label>
+                <input type="text" id="cliente" name="cliente">
+            </div>
+            <div class="form-group">
+                <label for="empresa">Empresa:</label>
+                <input type="text" id="empresa" name="empresa">
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca o Descripción del Producto:</label>
+                <input type="text" id="marca" name="marca">
+            </div>
+            <div class="form-group">
+                <label for="tecnica">Técnica:</label>
+                <input type="text" id="tecnica" name="tecnica">
+            </div>
+            <div class="form-group">
+                <label for="num_caras">Número de Caras:</label>
+                <input type="number" id="num_caras" name="num_caras">
+            </div>
+            <div class="form-group">
+                <label for="largo">Largo:</label>
+                <input type="text" id="largo" name="largo">
+            </div>
+            <div class="form-group">
+                <label for="fecha_solicitud">Fecha de Solicitud:</label>
+                <input type="date" id="fecha_solicitud" name="fecha_solicitud">
+            </div>
+            <div class="form-group">
+                <label for="fecha_entrega">Fecha de Entrega:</label>
+                <input type="date" id="fecha_entrega" name="fecha_entrega">
+            </div>
+            <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea id="observaciones" name="observaciones"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tipo_prenda">Tipo de Prenda:</label>
+                <input type="text" id="tipo_prenda" name="tipo_prenda">
+            </div>
+            <div class="form-group">
+                <label for="material">Material:</label>
+                <input type="text" id="material" name="material">
+            </div>
+            <div class="form-group">
+                <label for="ancho">Ancho:</label>
+                <input type="text" id="ancho" name="ancho">
+            </div>
+            <div class="form-group">
+                <label for="color_frente">Color Frente:</label>
+                <input type="text" id="color_frente" name="color_frente">
+            </div>
+            <div class="form-group">
+                <label for="color_reverso">Color Reverso:</label>
+                <input type="text" id="color_reverso" name="color_reverso">
+            </div>
+            <div class="form-group">
+                <label for="modo_empaque">Modo de Empaque:</label>
+                <input type="text" id="modo_empaque" name="modo_empaque">
+            </div>
+            <div class="form-group">
+                <label for="informacion_precio">Información Precio Cotizado:</label>
+                <input type="text" id="informacion_precio" name="informacion_precio">
+            </div>
+            <div class="form-group">
+                <label for="documento_abono">Documento Abono:</label>
+                <input type="text" id="documento_abono" name="documento_abono">
+            </div>
+            <div class="form-group">
+                <label for="costura">Costura:</label>
+                <input type="text" id="costura" name="costura">
+            </div>
+            <div class="form-group">
+                <label for="notas">Notas:</label>
+                <textarea id="notas" name="notas"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="correo_solicitante">Correo Solicitante:</label>
+                <input type="email" id="correo_solicitante" name="correo_solicitante">
+            </div>
+            <div class="form-group">
+                <label for="correo_facturacion">Correo Facturación:</label>
+                <input type="email" id="correo_facturacion" name="correo_facturacion">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

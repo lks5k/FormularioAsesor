@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Datos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1200px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Datos de Solicitudes</h1>
+        <table id="solicitudesTable">
+            <tr>
+                <th>ID</th>
+                <th>Solicitud</th>
+                <th>Correo Facturación</th>
+                <!-- ...otros encabezados... -->
+            </tr>
+        </table>
+    </div>
+    <script>
+        // Referencia a la base de datos
+        var database = firebase.database();
+
+        // Consultar los datos de Firebase
+        database.ref('solicitudes').on('value', function(snapshot) {
+            var solicitudesTable = document.getElementById('solicitudesTable');
+            solicitudesTable.innerHTML = `
+                <tr>
+                    <th>ID</th>
+                    <th>Solicitud</th>
+                    <th>Correo Facturación</th>
+                    <!-- ...otros encabezados... -->
+                </tr>
+            `;
+            snapshot.forEach(function(childSnapshot) {
+                var solicitud = childSnapshot.val();
+                var row = solicitudesTable.insertRow();
+                row.insertCell(0).innerText = childSnapshot.key;
+                row.insertCell(1).innerText = solicitud.solicitud;
+                row.insertCell(2).innerText = solicitud.correo_facturacion;
+                // ...otros campos...
+            });
+        });
+    </script>
+</body>
+</html>
