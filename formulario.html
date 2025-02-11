@@ -57,11 +57,24 @@
             background-color: #0056b3;
         }
     </style>
+    <script>
+        function validateForm() {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailSolicitante = document.getElementById('correo_solicitante').value;
+            const emailFacturacion = document.getElementById('correo_facturacion').value;
+
+            if (!emailPattern.test(emailSolicitante) || !emailPattern.test(emailFacturacion)) {
+                alert('Por favor, ingrese correos electrónicos válidos.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Formulario de Solicitud</h1>
-        <form action="procesar_formulario.php" method="post">
+        <form action="procesar_formulario.php" method="post" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="solicitud">Solicitud:</label>
                 <input type="text" id="solicitud" name="solicitud">

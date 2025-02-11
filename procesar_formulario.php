@@ -14,38 +14,39 @@ if ($conn->connect_error) {
 
 // Preparar y enlazar
 $stmt = $conn->prepare("INSERT INTO solicitudes (solicitud, asesor, atiende_pedido, oc, arte, base_datos_1, base_datos_2, cantidad, cliente, empresa, marca, tecnica, num_caras, largo, fecha_solicitud, fecha_entrega, observaciones, tipo_prenda, material, ancho, color_frente, color_reverso, modo_empaque, informacion_precio, documento_abono, costura, notas, correo_solicitante, correo_facturacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssissssissssssssssssss", $solicitud, $asesor, $atiende_pedido, $oc, $arte, $base_datos_1, $base_datos_2, $cantidad, $cliente, $empresa, $marca, $tecnica, $num_caras, $largo, $fecha_solicitud, $fecha_entrega, $observaciones, $tipo_prenda, $material, $ancho, $color_frente, $color_reverso, $modo_empaque, $informacion_precio, $documento_abono, $costura, $notas, $correo_solicitante, $correo_facturacion);
 
-// Establecer parámetros y ejecutar
-$solicitud = $_POST['solicitud'];
-$asesor = $_POST['asesor'];
-$atiende_pedido = $_POST['atiende_pedido'];
-$oc = $_POST['oc'];
-$arte = $_POST['arte'];
-$base_datos_1 = $_POST['base_datos_1'];
-$base_datos_2 = $_POST['base_datos_2'];
-$cantidad = $_POST['cantidad'];
-$cliente = $_POST['cliente'];
-$empresa = $_POST['empresa'];
-$marca = $_POST['marca'];
-$tecnica = $_POST['tecnica'];
-$num_caras = $_POST['num_caras'];
-$largo = $_POST['largo'];
-$fecha_solicitud = $_POST['fecha_solicitud'];
-$fecha_entrega = $_POST['fecha_entrega'];
-$observaciones = $_POST['observaciones'];
-$tipo_prenda = $_POST['tipo_prenda'];
-$material = $_POST['material'];
-$ancho = $_POST['ancho'];
-$color_frente = $_POST['color_frente'];
-$color_reverso = $_POST['color_reverso'];
-$modo_empaque = $_POST['modo_empaque'];
-$informacion_precio = $_POST['informacion_precio'];
-$documento_abono = $_POST['documento_abono'];
-$costura = $_POST['costura'];
-$notas = $_POST['notas'];
-$correo_solicitante = $_POST['correo_solicitante'];
-$correo_facturacion = $_POST['correo_facturacion'];
+// Sanitizar y validar datos
+$solicitud = filter_input(INPUT_POST, 'solicitud', FILTER_SANITIZE_STRING);
+$asesor = filter_input(INPUT_POST, 'asesor', FILTER_SANITIZE_STRING);
+$atiende_pedido = filter_input(INPUT_POST, 'atiende_pedido', FILTER_SANITIZE_STRING);
+$oc = filter_input(INPUT_POST, 'oc', FILTER_SANITIZE_STRING);
+$arte = filter_input(INPUT_POST, 'arte', FILTER_SANITIZE_STRING);
+$base_datos_1 = filter_input(INPUT_POST, 'base_datos_1', FILTER_SANITIZE_STRING);
+$base_datos_2 = filter_input(INPUT_POST, 'base_datos_2', FILTER_SANITIZE_STRING);
+$cantidad = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
+$cliente = filter_input(INPUT_POST, 'cliente', FILTER_SANITIZE_STRING);
+$empresa = filter_input(INPUT_POST, 'empresa', FILTER_SANITIZE_STRING);
+$marca = filter_input(INPUT_POST, 'marca', FILTER_SANITIZE_STRING);
+$tecnica = filter_input(INPUT_POST, 'tecnica', FILTER_SANITIZE_STRING);
+$num_caras = filter_input(INPUT_POST, 'num_caras', FILTER_VALIDATE_INT);
+$largo = filter_input(INPUT_POST, 'largo', FILTER_SANITIZE_STRING);
+$fecha_solicitud = filter_input(INPUT_POST, 'fecha_solicitud', FILTER_SANITIZE_STRING);
+$fecha_entrega = filter_input(INPUT_POST, 'fecha_entrega', FILTER_SANITIZE_STRING);
+$observaciones = filter_input(INPUT_POST, 'observaciones', FILTER_SANITIZE_STRING);
+$tipo_prenda = filter_input(INPUT_POST, 'tipo_prenda', FILTER_SANITIZE_STRING);
+$material = filter_input(INPUT_POST, 'material', FILTER_SANITIZE_STRING);
+$ancho = filter_input(INPUT_POST, 'ancho', FILTER_SANITIZE_STRING);
+$color_frente = filter_input(INPUT_POST, 'color_frente', FILTER_SANITIZE_STRING);
+$color_reverso = filter_input(INPUT_POST, 'color_reverso', FILTER_SANITIZE_STRING);
+$modo_empaque = filter_input(INPUT_POST, 'modo_empaque', FILTER_SANITIZE_STRING);
+$informacion_precio = filter_input(INPUT_POST, 'informacion_precio', FILTER_SANITIZE_STRING);
+$documento_abono = filter_input(INPUT_POST, 'documento_abono', FILTER_SANITIZE_STRING);
+$costura = filter_input(INPUT_POST, 'costura', FILTER_SANITIZE_STRING);
+$notas = filter_input(INPUT_POST, 'notas', FILTER_SANITIZE_STRING);
+$correo_solicitante = filter_input(INPUT_POST, 'correo_solicitante', FILTER_VALIDATE_EMAIL);
+$correo_facturacion = filter_input(INPUT_POST, 'correo_facturacion', FILTER_VALIDATE_EMAIL);
+
+$stmt->bind_param("ssssssssissssissssssssssssss", $solicitud, $asesor, $atiende_pedido, $oc, $arte, $base_datos_1, $base_datos_2, $cantidad, $cliente, $empresa, $marca, $tecnica, $num_caras, $largo, $fecha_solicitud, $fecha_entrega, $observaciones, $tipo_prenda, $material, $ancho, $color_frente, $color_reverso, $modo_empaque, $informacion_precio, $documento_abono, $costura, $notas, $correo_solicitante, $correo_facturacion);
 
 $stmt->execute();
 
