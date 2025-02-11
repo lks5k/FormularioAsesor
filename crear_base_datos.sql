@@ -1,5 +1,3 @@
-CREATE DATABASE IF NOT EXISTS solicitudes;
-
 USE solicitudes;
 
 CREATE TABLE IF NOT EXISTS solicitudes (

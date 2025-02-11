@@ -4,59 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Solicitud</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-        }
-        .container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-group textarea {
-            resize: vertical;
-        }
-        .form-group input[type="submit"] {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .form-group input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script>
         function validateForm() {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -72,129 +20,160 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Formulario de Solicitud</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Formulario de Solicitud</h1>
         <form action="procesar_formulario.php" method="post" onsubmit="return validateForm()">
-            <div class="form-group">
-                <label for="solicitud">Solicitud:</label>
-                <input type="text" id="solicitud" name="solicitud">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="solicitud">Solicitud:</label>
+                    <input type="text" class="form-control" id="solicitud" name="solicitud" placeholder="Descripción de la solicitud">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="asesor">Asesor:</label>
+                    <input type="text" class="form-control" id="asesor" name="asesor" placeholder="Nombre del asesor">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="asesor">Asesor:</label>
-                <input type="text" id="asesor" name="asesor">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="atiende_pedido">Atiende Pedido:</label>
+                    <input type="text" class="form-control" id="atiende_pedido" name="atiende_pedido" placeholder="Nombre de quien atiende el pedido">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="oc">O.C.:</label>
+                    <input type="text" class="form-control" id="oc" name="oc" placeholder="Número de orden de compra">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="atiende_pedido">Atiende Pedido:</label>
-                <input type="text" id="atiende_pedido" name="atiende_pedido">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="arte">Arte:</label>
+                    <input type="text" class="form-control" id="arte" name="arte" placeholder="Descripción del arte">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="base_datos_1">Base de Datos 1:</label>
+                    <input type="text" class="form-control" id="base_datos_1" name="base_datos_1" placeholder="Primera base de datos">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="oc">O.C.:</label>
-                <input type="text" id="oc" name="oc">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="base_datos_2">Base de Datos 2:</label>
+                    <input type="text" class="form-control" id="base_datos_2" name="base_datos_2" placeholder="Segunda base de datos">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad solicitada">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="arte">Arte:</label>
-                <input type="text" id="arte" name="arte">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="cliente">Cliente:</label>
+                    <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Nombre del cliente">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="base_datos_1">Base de Datos 1:</label>
-                <input type="text" id="base_datos_1" name="base_datos_1">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="marca">Marca o Descripción del Producto:</label>
+                    <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca o descripción del producto">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="tecnica">Técnica:</label>
+                    <input type="text" class="form-control" id="tecnica" name="tecnica" placeholder="Técnica utilizada">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="base_datos_2">Base de Datos 2:</label>
-                <input type="text" id="base_datos_2" name="base_datos_2">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="num_caras">Número de Caras:</label>
+                    <input type="number" class="form-control" id="num_caras" name="num_caras" placeholder="Número de caras">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="largo">Largo:</label>
+                    <input type="text" class="form-control" id="largo" name="largo" placeholder="Largo del producto">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" name="cantidad">
-            </div>
-            <div class="form-group">
-                <label for="cliente">Cliente:</label>
-                <input type="text" id="cliente" name="cliente">
-            </div>
-            <div class="form-group">
-                <label for="empresa">Empresa:</label>
-                <input type="text" id="empresa" name="empresa">
-            </div>
-            <div class="form-group">
-                <label for="marca">Marca o Descripción del Producto:</label>
-                <input type="text" id="marca" name="marca">
-            </div>
-            <div class="form-group">
-                <label for="tecnica">Técnica:</label>
-                <input type="text" id="tecnica" name="tecnica">
-            </div>
-            <div class="form-group">
-                <label for="num_caras">Número de Caras:</label>
-                <input type="number" id="num_caras" name="num_caras">
-            </div>
-            <div class="form-group">
-                <label for="largo">Largo:</label>
-                <input type="text" id="largo" name="largo">
-            </div>
-            <div class="form-group">
-                <label for="fecha_solicitud">Fecha de Solicitud:</label>
-                <input type="date" id="fecha_solicitud" name="fecha_solicitud">
-            </div>
-            <div class="form-group">
-                <label for="fecha_entrega">Fecha de Entrega:</label>
-                <input type="date" id="fecha_entrega" name="fecha_entrega">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fecha_solicitud">Fecha de Solicitud:</label>
+                    <input type="date" class="form-control" id="fecha_solicitud" name="fecha_solicitud">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fecha_entrega">Fecha de Entrega:</label>
+                    <input type="date" class="form-control" id="fecha_entrega" name="fecha_entrega">
+                </div>
             </div>
             <div class="form-group">
                 <label for="observaciones">Observaciones:</label>
-                <textarea id="observaciones" name="observaciones"></textarea>
+                <textarea class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones adicionales"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="tipo_prenda">Tipo de Prenda:</label>
+                    <input type="text" class="form-control" id="tipo_prenda" name="tipo_prenda" placeholder="Tipo de prenda">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="material">Material:</label>
+                    <input type="text" class="form-control" id="material" name="material" placeholder="Material utilizado">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="ancho">Ancho:</label>
+                    <input type="text" class="form-control" id="ancho" name="ancho" placeholder="Ancho del producto">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="color_frente">Color Frente:</label>
+                    <input type="text" class="form-control" id="color_frente" name="color_frente" placeholder="Color del frente">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="color_reverso">Color Reverso:</label>
+                    <input type="text" class="form-control" id="color_reverso" name="color_reverso" placeholder="Color del reverso">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="modo_empaque">Modo de Empaque:</label>
+                    <input type="text" class="form-control" id="modo_empaque" name="modo_empaque" placeholder="Modo de empaque">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="informacion_precio">Información Precio Cotizado:</label>
+                    <input type="text" class="form-control" id="informacion_precio" name="informacion_precio" placeholder="Información del precio cotizado">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="documento_abono">Documento Abono:</label>
+                    <input type="text" class="form-control" id="documento_abono" name="documento_abono" placeholder="Documento de abono">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="costura">Costura:</label>
+                    <input type="text" class="form-control" id="costura" name="costura" placeholder="Detalles de la costura">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="notas">Notas:</label>
+                    <textarea class="form-control" id="notas" name="notas" placeholder="Notas adicionales"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="correo_solicitante">Correo Solicitante:</label>
+                    <input type="email" class="form-control" id="correo_solicitante" name="correo_solicitante" placeholder="Correo del solicitante">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="correo_facturacion">Correo Facturación:</label>
+                    <input type="email" class="form-control" id="correo_facturacion" name="correo_facturacion" placeholder="Correo de facturación">
+                </div>
             </div>
             <div class="form-group">
-                <label for="tipo_prenda">Tipo de Prenda:</label>
-                <input type="text" id="tipo_prenda" name="tipo_prenda">
-            </div>
-            <div class="form-group">
-                <label for="material">Material:</label>
-                <input type="text" id="material" name="material">
-            </div>
-            <div class="form-group">
-                <label for="ancho">Ancho:</label>
-                <input type="text" id="ancho" name="ancho">
-            </div>
-            <div class="form-group">
-                <label for="color_frente">Color Frente:</label>
-                <input type="text" id="color_frente" name="color_frente">
-            </div>
-            <div class="form-group">
-                <label for="color_reverso">Color Reverso:</label>
-                <input type="text" id="color_reverso" name="color_reverso">
-            </div>
-            <div class="form-group">
-                <label for="modo_empaque">Modo de Empaque:</label>
-                <input type="text" id="modo_empaque" name="modo_empaque">
-            </div>
-            <div class="form-group">
-                <label for="informacion_precio">Información Precio Cotizado:</label>
-                <input type="text" id="informacion_precio" name="informacion_precio">
-            </div>
-            <div class="form-group">
-                <label for="documento_abono">Documento Abono:</label>
-                <input type="text" id="documento_abono" name="documento_abono">
-            </div>
-            <div class="form-group">
-                <label for="costura">Costura:</label>
-                <input type="text" id="costura" name="costura">
-            </div>
-            <div class="form-group">
-                <label for="notas">Notas:</label>
-                <textarea id="notas" name="notas"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="correo_solicitante">Correo Solicitante:</label>
-                <input type="email" id="correo_solicitante" name="correo_solicitante">
-            </div>
-            <div class="form-group">
-                <label for="correo_facturacion">Correo Facturación:</label>
-                <input type="email" id="correo_facturacion" name="correo_facturacion">
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Enviar">
+                <input type="submit" class="btn btn-primary btn-block" value="Enviar">
             </div>
         </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
